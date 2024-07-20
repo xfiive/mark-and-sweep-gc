@@ -1,0 +1,1 @@
+This project served as an introduction for me to how rubbish collectors are structured, how they work, and how to implement them myself. My project is a mark-and-sweep garbage collector, I was inspired by it more and more while learning Java. In the future optimisations for more speed, iterators and other things may be implemented.
