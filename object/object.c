@@ -1,5 +1,4 @@
 #include "object.h"
-#include <limits.h>
 
 Object *init_object(object_type type) {
   Object *object = calloc(1, sizeof(Object));
@@ -22,15 +21,40 @@ bool destroy_object(Object *object) {
     return false;
 
   if (object->type == OBJECT) {
-    if (object->head != NULL)
-      free(object->head);
-    if (object->tail != NULL)
-      free(object->tail);
+    if (object->head != NULL) {
+      destroy_object(object->head);
+    }
+    if (object->tail != NULL) {
+      destroy_object(object->tail);
+    }
   }
 
   free(object);
 
   return true;
+}
+
+bool destroy_object_recursive(Object *object) {
+  if (object == NULL)
+    return false;
+
+  destroy_object_recursive(object->next);
+
+  destroy_object(object);
+
+  return true;
+}
+
+void add_object(Object *first, Object *new_object) {
+  if (first == NULL)
+    return;
+
+  Object *current = first;
+  while (current->next != NULL) {
+    current = current->next;
+  }
+
+  current->next = new_object;
 }
 
 void mark_object(Object *object) {

@@ -4,14 +4,8 @@ LDLIBS = -lm
 
 TARGET = main
 
-SRCS = main.c \
-       object/object.c \
-       stack/stack.c \
-       vm/vm.c
-
-HDRS = object/object.h \
-       stack/stack.h \
-       vm/vm.h
+SRCS = $(shell find . -name '*.c')
+HDRS = $(shell find . -name '*.h')
 
 OBJS = $(SRCS:.c=.o)
 

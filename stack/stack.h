@@ -5,11 +5,14 @@
 #include <stddef.h>
 
 #define MAX_STACK_SIZE 256
-#define GC_START_COUNT 8
 
 typedef struct {
   Object *stack[MAX_STACK_SIZE];
   size_t size;
 } Stack;
+
+Stack *init_stack();
+
+bool destroy_stack(Stack *stack);
 
 #endif
