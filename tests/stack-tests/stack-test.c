@@ -15,6 +15,16 @@ void stack_init_and_destroy_test() {
   puts("Finishing 'stack_init_and_destroy_test' test.");
 }
 
-// void stack_push_and_pop_test() { Stack *stack = init_stack(); }
+void stack_push_and_pop_test() {
+  puts("Starting 'stack_push_and_pop_test' test.");
+
+  Stack *stack = init_stack();
+
+  push(stack, init_object(DIGIT));
+  push(stack, init_object(OBJECT));
+  push(stack, init_object(DIGIT));
+
+  puts("Finishing 'stack_push_and_pop_test' test.");
+}
 
 void stack_tests() { stack_init_and_destroy_test(); }

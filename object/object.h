@@ -35,4 +35,6 @@ bool destroy_object(Object *object);
 
 void mark_object(Object *object);
 
+void print_object(Object *object);
+
 #endif

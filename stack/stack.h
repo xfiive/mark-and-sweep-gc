@@ -15,4 +15,8 @@ Stack *init_stack();
 
 bool destroy_stack(Stack *stack);
 
+void push(Stack *stack, Object *object);
+
+Object *pop(Stack *stack);
+
 #endif

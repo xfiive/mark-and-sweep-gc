@@ -57,6 +57,21 @@ void add_object(Object *first, Object *new_object) {
   current->next = new_object;
 }
 
+void print_object(Object *object) {
+  if (object == NULL)
+    return;
+
+  if (object->type == DIGIT)
+    printf("\nObject value: %f", object->value);
+  else {
+    printf("(");
+    print_object(object->head);
+    printf(", ");
+    print_object(object->tail);
+    printf(")");
+  }
+}
+
 void mark_object(Object *object) {
   if (object == NULL)
     return;

@@ -22,5 +22,13 @@ void push(Stack *stack, Object *object) {
   stack->stack[stack->size++] = object;
 }
 
-Object *object(Stack *stack) { return stack->stack[--stack->size]; }
+Object *pop(Stack *stack) { return stack->stack[--stack->size]; }
 
+void print_stack_objects(Stack *stack) {
+  if (stack == NULL)
+    return;
+
+  for (size_t i = 0; i < stack->size; i++) {
+    print_object(stack->stack[i]);
+  }
+}
